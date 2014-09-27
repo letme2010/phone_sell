@@ -101,7 +101,7 @@ body > div.images-slider {
 }
 #fwslider .slide_content_wrap { /* Slider Text Content Container Style */
     max-width:1280px;
-    margin: 15.5% auto 0;
+    margin: 15.5% 0 0 180px;
 }
 #fwslider .title {  /* Slider Title Style */
 	font-family: 'Open Sans', 'sans-serif';
