@@ -11,6 +11,34 @@
  */
 
 /* Etalage container (large thumb + small thumbs): */
+
+.call_list{
+	margin:auto;
+	width:80%;
+}
+
+.call_list thead{
+	background:gray;
+}
+
+.call_list thead tr th{
+	color: white;
+	font-size:20px;
+	text-align:center;
+}
+
+.call_list tbody tr{
+	color: black;
+	font-size:18px;
+	text-align:center;
+	border:solid gray;
+	border-width:0 0 1px 0;
+}
+
+.call_list tbody tr td {
+	padding:5px;
+}
+
 #etalage{
 	display: none;
 	margin-bottom: 50px;

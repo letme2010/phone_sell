@@ -366,11 +366,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<br/>
 						<br/>
 
-						<div class="btn_form">
-							<form>
-								<input type="submit" value="购买" title="">
-							</form>
-						</div>
+						<button onclick="onBuy();" style="text-align:center;  height:40px; width:60px; margin:0px; padding-top:5px; border:0px;">
+							购买
+						</button>
+
+						<br/>
+						<br/>
+
 						<p class="m_desc">
 							你可以有千千万万种方法，让你的 Apple Watch 为你的个性代言。我们精挑细选了三个系列的表壳和表带，每一款都堪称十全十美，以便帮你找到更匹配自己的风格。
 						</p>
@@ -564,7 +566,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 
 		</div>
+		<script type="text/javascript">
+			function onBuy() {
+				if (confirm("确认购买")) {
+					//add data to model.
+					window.location = "list.html";
+				}
+			}
 
+		</script>
 	</body>
 </html>
 
