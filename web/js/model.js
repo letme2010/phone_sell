@@ -22,6 +22,32 @@ function prepareDatabase() {
 	}
 }
 
+function getList(aCallback) {
+
+	var ret = [];
+
+	var db = openDatabase('db1', '1.0', 'db1', 5 * 1024 * 1024);
+	if (db) {
+		db.transaction(function(context) {
+
+			context.executeSql("select * from t_order", [], function(tx, result) {
+				var rows = result.rows;
+				var len = rows.length;
+				for (var i = 0; i < len; i++) {
+					ret.push(rows.item(i));
+				}
+
+				if (aCallback) {
+					aCallback(ret);
+				}
+
+			});
+
+		});
+	}
+
+}
+
 function deleteById(aId) {
 	var db = openDatabase('db1', '1.0', 'db1', 5 * 1024 * 1024);
 	if (db) {
@@ -74,7 +100,27 @@ Date.prototype.Format = function(fmt) {//author: meizz
 	return fmt;
 }
 
-function onDelectBtnClick(aBtn) {
-	console.log(aBtn);
+function onDelectBtnClick(aId) {
+	deleteById(aId);
 }
 
+function createRow(aRow) {
+	var ret = null;
+	
+	var html = '<tr>\
+					<td>1</td><td><img src="#img_url#" width="60px" height="80px"/></td><td>#name#</td><td>#price#</td><td>#time#</td><td>\
+							<button style="background: gray;color:white;width:50px;height:50px;border: 0" onclick="onDelectBtnClick(this.id);" id="#id#">\
+								X\
+							</button></td>\
+				</tr>';
+				
+	html = html.replace('#img_url#', aRow.url);
+	html = html.replace('#name#', aRow.name);
+	html = html.replace('#time#', aRow.time);
+	html = html.replace('#id#', aRow.id);
+	html = html.replace('#price#', aRow.price);
+	console.log(html);
+	ret = $(html);
+	
+	return ret;
+}	

@@ -155,7 +155,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<th>订单号</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th><th>商品名</th><th>价格</th><th>购买时间</th><th>&nbsp;&nbsp;操作&nbsp;&nbsp;&nbsp;</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="main_list">
 						<tr>
 							<td>1</td><td><img src="./images/t1.jpg" width="60px" height="80px"/></td><td>Apple Watch</td><td>1999元</td><td>2014年9月20日 14:31:30</td><td>
 							<button style="background: gray;color:white;width:50px;height:50px;border: 0" onclick="onDelectBtnClick(this.id);" id="9527">
@@ -164,7 +164,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</tr>
 					</tbody>
 				</table>
-
+				<script type="text/javascript">
+					
+					getList(function(aRows){
+						
+						var _jqList = $('#main_list');
+						
+						for (var i = 0, len = aRows.length; i < len; i++) {
+							var row = aRows[i];
+							var _jqTr = createRow(row);
+							_jqList.append(_jqTr);
+						}						
+					});
+					
+				</script>
 			</div>
 		</div>
 		<div class="footer">
