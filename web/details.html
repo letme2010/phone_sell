@@ -566,9 +566,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 
 		</div>
+		<script type="text/javascript" src="./js/model.js"></script>
 		<script type="text/javascript">
 			function onBuy() {
 				if (confirm("确认购买")) {
+					
+					var url = $($('#etalage li')[7]).children().children().attr('src');
+					insertRow(url, "Apple Watch", 1999);
+					
 					//add data to model.
 					window.location = "list.html";
 				}
